@@ -81,6 +81,15 @@ class RequestObject(BaseModel):
                             },
                         },
                     ],
+                    [
+                        {
+                            "command": "allow_full_access",
+                            "properties": {
+                                "input_property": "groupname",
+                                "value": "EDITOR_ATAC",
+                            },
+                        }
+                    ],
                 ],
             }
         }
