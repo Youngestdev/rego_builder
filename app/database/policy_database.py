@@ -16,6 +16,7 @@ class PolicyDatabase:
         )
 
     def add_policy(self, policy: dict, owner: str) -> dict:
+
         if self.exists(policy["name"], owner):
             raise HTTPException(
                 status_code=409, detail="Rules with the same name already exist"
@@ -29,10 +30,9 @@ class PolicyDatabase:
         )
 
     def exists(self, policy_name: str, owner: str) -> bool:
-        doc = self.database.get(
+        return self.database.contains(
             self.store.name == policy_name and self.store.owner == owner
         )
-        return doc["name"] == policy_name
 
     def delete_policy(self, policy_name: str, owner: str) -> None:
         self.database.remove(
