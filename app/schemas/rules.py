@@ -61,17 +61,6 @@ class RequestObject(BaseModel):
                                 "value": "geobeyond",
                             },
                         },
-                        {
-                            "command": "input_prop_in_as",
-                            "properties": {
-                                "datasource_name": "items",
-                                "datasource_loop_variables": ["name", "groupname"],
-                                "data_input_properties": [
-                                    "preferred_username",
-                                    "groupname",
-                                ],
-                            },
-                        },
                     ],
                     [
                         {
@@ -186,17 +175,6 @@ class UpdateRequestObject(BaseModel):
                             "properties": {
                                 "input_property": "company",
                                 "value": "geobeyond",
-                            },
-                        },
-                        {
-                            "command": "input_prop_in_as",
-                            "properties": {
-                                "datasource_name": "items",
-                                "datasource_loop_variables": ["name", "everyone"],
-                                "data_input_properties": [
-                                    "preferred_username",
-                                    "groupname",
-                                ],
                             },
                         },
                     ],
