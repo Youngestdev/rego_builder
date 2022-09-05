@@ -1,6 +1,5 @@
 import os
 
-from app.config.config import settings
 from app.server.github import GitHubOperations
 from .build_rego_file import build_rego
 
@@ -15,8 +14,7 @@ class WriteRego:
     def write_to_file(self, rule: dict, operation: str = "write") -> None:
         """
         Write the rego file to the local git repository
-        :param rule: rules
-        :param operation: write or update
+        :param policies: list of policies
         :return: response dict to show the status of the request
         """
         # Define file path
@@ -38,7 +36,7 @@ class WriteRego:
             old_rule = initiate_rule
         result = old_rule + build_rego(rule["rules"])
 
-        with open(file_path, "w") as file:
+        with open(file_path, "w+") as file:
             file.write(result)
         # Update GitHub
         self.github.push()
